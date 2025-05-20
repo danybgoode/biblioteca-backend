@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app, origins=["https://api.bibliotecanocturna.com.mx"])
+CORS(app, origins=["https://bibliotecanocturna.com.mx"])
 
 # SQLite DB config
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
