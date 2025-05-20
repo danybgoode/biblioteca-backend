@@ -68,7 +68,7 @@ def signup():
             abs_user_id = abs_data.get("user", {}).get("id")
 
             # Save user in local DB
-            new_user = User(email=email, password=hashed_password, abs_user_id=abs_user_id)
+            new_user = User(email=email, password=hashed_password, abs_user_id=abs_user_id, plan=plan)
             db.session.add(new_user)
             db.session.commit()
 
