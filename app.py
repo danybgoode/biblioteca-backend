@@ -28,13 +28,13 @@ def signup():
 
     email = data.get("email")
     password = data.get("password")
+    plan = data.get("plan", "freemium")  # ✅ FIX: define plan with a default
+
     if not email or not password:
         return jsonify({"error": "Missing email or password"}), 400
 
-    # Hash password for local DB storage
     hashed_password = generate_password_hash(password)
 
-    # Prepare ABS API call
     abs_url = os.environ.get("ABS_API_URL")
     abs_token = os.environ.get("ABS_ADMIN_TOKEN")
 
