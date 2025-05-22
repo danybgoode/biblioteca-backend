@@ -45,6 +45,7 @@ def signup():
 
     abs_payload = {
         "username": email,
+        "email": email,
         "password": password,
         "type": "user",
         "isActive": True,
