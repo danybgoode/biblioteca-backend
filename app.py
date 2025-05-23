@@ -2,7 +2,6 @@ import requests
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from models import db, User
-from abs_api import create_abs_user
 from werkzeug.security import generate_password_hash
 import os
 from dotenv import load_dotenv
