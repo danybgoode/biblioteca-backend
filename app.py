@@ -27,6 +27,7 @@ def signup():
 
     email = data.get("email")
     password = data.get("password")
+    username = data.get("username")
     plan = data.get("plan", "freemium")  # ✅ FIX: define plan with a default
 
     if not email or not password:
@@ -43,7 +44,7 @@ def signup():
     }
 
     abs_payload = {
-        "username": email,
+        "username": username,
         "email": email,
         "password": password,
         "type": "user",
