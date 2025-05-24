@@ -33,8 +33,6 @@ def signup():
     if not email or not password:
         return jsonify({"error": "Missing email or password"}), 400
 
-    hashed_password = generate_password_hash(password)
-
     abs_url = os.environ.get("ABS_API_URL")
     abs_token = os.environ.get("ABS_ADMIN_TOKEN")
 
@@ -69,7 +67,7 @@ def signup():
             abs_user_id = abs_data.get("user", {}).get("id")
 
             # Save user in local DB
-            new_user = User(email=email, password=hashed_password, abs_user_id=abs_user_id, plan=plan)
+            new_user = User(email=email, password=password, abs_user_id=abs_user_id, plan=plan)
             db.session.add(new_user)
             db.session.commit()
 
