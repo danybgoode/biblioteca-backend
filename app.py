@@ -27,8 +27,6 @@ def signup():
 
     email = data.get("email")
     password = data.get("password")
-    username = data.get("username")
-    plan = data.get("plan", "freemium")  # ✅ FIX: define plan with a default
 
     if not email or not password:
         return jsonify({"error": "Missing email or password"}), 400
@@ -42,7 +40,7 @@ def signup():
     }
 
     abs_payload = {
-        "username": username,
+        "username": email,
         "email": email,
         "password": password,
         "type": "user",
